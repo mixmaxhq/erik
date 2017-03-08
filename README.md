@@ -121,3 +121,7 @@ We welcome pull requests! Please lint your code using the JSHint configuration i
 ### Release history
 
 * 1.0.0 Initial release.
+
+### Etymology
+
+Erik is the name of the Phantom in _Phantom of the Opera_ :D
