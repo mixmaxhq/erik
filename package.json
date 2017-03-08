@@ -1,0 +1,41 @@
+{
+  "name": "erik",
+  "version": "0.0.0",
+  "description": "Everything you need to start running your client Jasmine tests headlessly with PhantomJS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mixmaxhq/erik.git"
+  },
+  "keywords": [
+    "mixmax",
+    "gulp",
+    "karma",
+    "jasmine",
+    "phantomjs",
+    "of",
+    "the",
+    "opera"
+  ],
+  "author": "Spencer Brown <spencer@mixmax.com> (https://mixmax.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mixmaxhq/erik/issues"
+  },
+  "homepage": "https://github.com/mixmaxhq/erik#readme",
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-concat": "2.6.1",
+    "gulp-remote-src": "0.4.2",
+    "jasmine-core": "2.5.2",
+    "karma": "1.5.0",
+    "karma-jasmine": "1.1.0",
+    "karma-mocha-reporter": "2.2.2",
+    "karma-phantomjs-launcher": "1.0.2",
+    "run-sequence": "1.2.2",
+    "streamqueue": "1.1.1"
+  }
+}
