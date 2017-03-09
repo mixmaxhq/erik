@@ -98,6 +98,10 @@ new Erik({
    */
   bundledSpecPath: 'spec/client/tests.js',
 
+  /**
+   * This configuration is not passed directly into Karma but rather is processed by Erik. Only
+   * `port` is supported at this time.
+   */
   karmaConfig: {
     /**
      * Port on which to run the Karma server.
