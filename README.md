@@ -94,7 +94,7 @@ new Erik({
    */
   karmaConfig: {
     /**
-     * Port on which to run the Karma server.
+     * Port on which to run the Karma server. Defaults to 9876.
      */
     port: 1337
   },
