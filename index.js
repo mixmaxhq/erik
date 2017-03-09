@@ -81,7 +81,6 @@ class Erik {
   _registerTasks() {
     this._registerFetchRemoteDeps();
     this._registerBundleDeps();
-    this._registerCombine();
     this._registerRunSpec();
     this._registerErik();
   }
@@ -115,21 +114,6 @@ class Erik {
     });
   }
 
-  _registerCombine() {
-    /**
-     * Combine the bundled dependencies and specs to ensure that the dependencies are available to
-     * the test suite.
-     */
-    this._gulp.task('erik-combine', () => {
-      return this._gulp.src([
-        `${this._erikPath}/bundled-deps.js`,
-        this._bundledSpecPath
-      ])
-        .pipe(concat('combined.js'))
-        .pipe(this._gulp.dest(this._erikPath));
-    });
-  }
-
   _registerRunSpec() {
     this._gulp.task('erik-run-spec', (done) => {
       new karmaServer.start({
@@ -145,7 +129,8 @@ class Erik {
         },
 
         files: [
-          `${this._erikPath}/combined.js`
+          `${this._erikPath}/bundled-deps.js`,
+          this._bundledSpecPath,
         ],
 
         port: this._port,
@@ -169,7 +154,6 @@ class Erik {
       const tasks = this._taskDependencies.concat([
         'erik-fetch-remote-deps',
         'erik-bundle-deps',
-        'erik-combine',
         'erik-run-spec',
         done
       ]);
