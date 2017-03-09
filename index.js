@@ -1,6 +1,7 @@
 "use strict";
 
 const path = require('path');
+const del = require('del');
 const runSequence = require('run-sequence');
 const streamqueue = require('streamqueue');
 const remoteSrc = require('gulp-remote-src');
@@ -41,6 +42,8 @@ class Erik {
 
     this._erikPath = path.join(options.bundlePath, '.erik');
 
+    this._cleanPath();
+
     this._registerTasks();
   }
 
@@ -77,6 +80,10 @@ class Erik {
       throw new Error('`options.bundlePath` is of an invalid type.');
     }
    }
+
+  _cleanPath() {
+    del(this._erikPath);
+  }
 
   _registerTasks() {
     this._registerFetchRemoteDeps();
