@@ -107,7 +107,7 @@ class Erik {
   _registerBundleDeps() {
     this._gulp.task('erik-bundle-deps', () => {
       return this._gulp.src([
-        'erik/remote-deps.js',
+        `${this._erikPath}/remote-deps.js`,
         ...this._localDependencies
       ])
         .pipe(concat('bundled-deps.js'))
@@ -122,7 +122,7 @@ class Erik {
      */
     this._gulp.task('erik-combine', () => {
       return this._gulp.src([
-        'erik/bundled-deps.js',
+        `${this._erikPath}/bundled-deps.js`,
         this._bundledSpecPath
       ])
         .pipe(concat('combined.js'))
@@ -145,7 +145,7 @@ class Erik {
         },
 
         files: [
-          'erik/combined.js'
+          `${this._erikPath}/combined.js`
         ],
 
         port: this._port,
