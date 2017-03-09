@@ -79,18 +79,8 @@ new Erik({
    */
   remoteDependencies: [
       'https://cdn.jsdelivr.net/g/es6.shim@0.35.3',
-      'https://cdn.jsdelivr.net/g/papaparse@4.1.2',
       'https://cdn.jsdelivr.net/g/jquery@2.1.4',
       'https://cdn.jsdelivr.net/g/underscorejs@1.8.3',
-      'https://cdn.jsdelivr.net/g/cookiejs@0.1',
-      'https://cdn.jsdelivr.net/g/backbonejs@1.1.2',
-      'https://cdn.jsdelivr.net/g/handlebarsjs@4.0.5(handlebars.runtime.min.js)',
-      'https://cdn.jsdelivr.net/g/raven@3.3.0',
-      'https://cdn.jsdelivr.net/g/jquery.scrollto@2.1.0',
-      'https://cdn.jsdelivr.net/g/jquery.hoverintent@r7',
-      'https://cdn.jsdelivr.net/g/momentjs@2.10.3',
-      'https://cdn.jsdelivr.net/g/momentjs.timezone@0.5.2(moment-timezone-with-data.min.js)',
-      'https://cdn.jsdelivr.net/g/interact.js@1.2.8'
   ],
 
   /**
