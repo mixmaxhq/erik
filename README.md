@@ -53,7 +53,7 @@ new Erik({
    * When watch is set, Erik will watch for changes to your bundled spec and re-run the test suite
    * when changes occur.
    */
-  watch: !!argv.erik-watch,
+  watch: !!argv.watch,
 
   /**
    * Names of tasks to be run before any Erik processing is done. Useful for registering your
@@ -106,7 +106,7 @@ new Erik({
 
 Run your test suite!
 
-`$ gulp erik [--erik-watch]`
+`$ gulp erik [--watch]`
 
 ### Contributing
 
