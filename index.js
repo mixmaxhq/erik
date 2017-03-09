@@ -39,7 +39,7 @@ class Erik {
 
     this._assertValidOptions(options);
 
-    this._erikPath = path.join(options.bundlePath, 'erik');
+    this._erikPath = path.join(options.bundlePath, '.erik');
 
     this._registerTasks();
   }

@@ -99,7 +99,7 @@ new Erik({
     port: 1337
   },
 
-  // Base path to use for Erik's bundled files. A directory named `erik` will be created here.
+  // Base path to use for Erik's bundled files. A directory named `.erik` will be created here.
   bundlePath: 'spec/client'
 });
 ```
