@@ -87,6 +87,12 @@ class Erik {
 
   _registerFetchRemoteDeps() {
     this._gulp.task('erik-fetch-remote-deps', () => {
+      /**
+       * `streamqueue` hangs and `gulp` exits if `_remoteDependencies` is empty and we don't return
+       * early here.
+       */
+      if (this._remoteDependencies.length === 0) return;
+
       return streamqueue({
         objectMode: true
       }, ...this._remoteDependencies.map((urlStr) => {
