@@ -112,7 +112,7 @@ new Erik({
 
 Run your test suite!
 
-`$ gulp erik [--watch]`
+`$ gulp erik [--erik-watch]`
 
 ### Contributing
 
