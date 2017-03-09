@@ -161,7 +161,7 @@ class Erik {
 
   _registerErik() {
     this._gulp.task('erik', (done) => {
-      del(this._erikPath);
+      del.sync(this._erikPath);
 
       const tasks = this._taskDependencies.concat([
         'erik-fetch-remote-deps',
