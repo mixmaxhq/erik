@@ -42,8 +42,6 @@ class Erik {
 
     this._erikPath = path.join(options.bundlePath, '.erik');
 
-    this._cleanPath();
-
     this._registerTasks();
   }
 
@@ -80,10 +78,6 @@ class Erik {
       throw new Error('`options.bundlePath` is of an invalid type.');
     }
    }
-
-  _cleanPath() {
-    del(this._erikPath);
-  }
 
   _registerTasks() {
     this._registerFetchRemoteDeps();
@@ -164,6 +158,8 @@ class Erik {
 
   _registerErik() {
     this._gulp.task('erik', (done) => {
+      del(this._erikPath);
+
       const tasks = this._taskDependencies.concat([
         'erik-fetch-remote-deps',
         'erik-bundle-deps',
