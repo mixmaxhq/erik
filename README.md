@@ -78,9 +78,9 @@ new Erik({
    * URLs corresponding to remote dependencies.
    */
   remoteDependencies: [
-      'https://cdn.jsdelivr.net/g/es6.shim@0.35.3',
-      'https://cdn.jsdelivr.net/g/jquery@2.1.4',
-      'https://cdn.jsdelivr.net/g/underscorejs@1.8.3',
+    'https://cdn.jsdelivr.net/g/es6.shim@0.35.3',
+    'https://cdn.jsdelivr.net/g/jquery@2.1.4',
+    'https://cdn.jsdelivr.net/g/underscorejs@1.8.3',
   ],
 
   /**
