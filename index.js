@@ -144,12 +144,15 @@ class Erik {
 
         autoWatch: this._watch,
         singleRun: !this._watch
-      }, function(error) {
+      }, function(exitCode) {
         /**
          * We must create our own Error object because the error Karma returns is not a proper Error
          * object per https://github.com/karma-runner/gulp-karma/issues/18#issuecomment-188413903.
          */
-        error = error ? new Error(`Karma returned with the error code: ${error}`) : undefined;
+        let error;
+        if (exitCode !== 0) {
+          error = new Error(`Karma returned with the exit code: ${exitCode}`);
+        }
 
         done(error);
       });
