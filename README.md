@@ -84,7 +84,7 @@ new Erik({
   ],
 
   /**
-   * Path to your bundled and processed test suite.
+   * Path to your bundled test suite. This should be an IIFE.
    */
   bundledSpecPath: 'spec/client/tests.js',
 
