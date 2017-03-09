@@ -53,15 +53,15 @@ class Erik {
       throw new Error('`options.watch` is of an invalid type.');
     }
 
-    if (typeof this._taskDependencies !== 'object') {
+    if (!Array.isArray(this._taskDependencies)) {
       throw new Error('`options.taskDependencies` is of an invalid type.');
     }
 
-    if (typeof this._localDependencies !== 'object') {
+    if (!Array.isArray(this._localDependencies)) {
       throw new Error('`options.localDependencies` is of an invalid type.');
     }
 
-    if (typeof this._remoteDependencies !== 'object') {
+    if (!Array.isArray(this._remoteDependencies)) {
       throw new Error('`options.remoteDependencies` is of an invalid type.');
     }
 
