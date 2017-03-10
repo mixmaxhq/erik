@@ -28,7 +28,6 @@
   "homepage": "https://github.com/mixmaxhq/erik#readme",
   "dependencies": {
     "del": "^2.2.2",
-    "gulp": "3.9.1",
     "gulp-concat": "2.6.1",
     "gulp-remote-src": "0.4.2",
     "jasmine-core": "2.5.2",
