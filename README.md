@@ -114,6 +114,7 @@ We welcome pull requests! Please lint your code using the JSHint configuration i
 
 ### Release history
 
+* 1.0.1 Move dependencies to be non-dev dependencies.
 * 1.0.0 Initial release.
 
 ### Etymology
