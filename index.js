@@ -38,7 +38,7 @@ class Erik {
     this._port = (options.karmaConfig && options.karmaConfig.port) || 9876;
     this._bundlePath = options.bundlePath || '';
 
-    this._assertValidOptions(options);
+    this._assertValidOptions();
 
     this._erikPath = path.join(options.bundlePath, '.erik');
 
