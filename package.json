@@ -1,6 +1,6 @@
 {
   "name": "erik",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Start running your client `Jasmine` tests headlessly with `PhantomJS` and `gulp` today.",
   "main": "index.js",
   "scripts": {
