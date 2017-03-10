@@ -19,10 +19,8 @@ class Erik {
    * processing is done. Useful for registering your spec-building/processing tasks as dependencies
    * of Erik's testing task. These tasks will be run in serial as passed.
    * @param {String[]} [options.localDependencies] - Local dependencies to be bundled alongisde your
-   * remote dependencies. Glob strings. Useful for including your bower-installed packages, for
-   * example.
+   * remote dependencies. Glob strings.
    * @param {String[]} [options.remoteDependencies] - URLs corresponding to remote dependencies.
-   * @param {String} options.bundledSpecPath - Path to your bundled and processed test suite.
    * @param {Object} [options.karmaConfig]
    * @param {Number} [options.karmaConfig.port=9876] - Port on which to run the Karma server.
    * @param {String} [bundlePath] - Base bath to use for Erik's bundled files. A directory named
@@ -34,11 +32,25 @@ class Erik {
     this._taskDependencies = options.taskDependencies || [];
     this._localDependencies = options.localDependencies || [];
     this._remoteDependencies = options.remoteDependencies || [];
-    this._bundledSpecPath = options.bundledSpecPath;
     this._port = (options.karmaConfig && options.karmaConfig.port) || 9876;
     this._bundlePath = options.bundlePath || '';
 
-    this._assertValidOptions(options);
+    this._assertValidOptions();
+
+    // Check for deprecated `bundledSpecPath` option.
+    if (options.bundledSpecPath) {
+      process.emitWarning('`options.bundledSpechPath is deprecated. Please include your bundled ' +
+        'spec path as part of `options.localDependencies`.',
+        'DeprecationWarning'
+      );
+
+      if (typeof options.bundledSpecPath === 'string') {
+        this._localDependencies.push(options.bundledSpecPath);
+      } else {
+        throw new Error('Attempted to use deprecated `options.bundledSpecPath` option but it was ' +
+          'not a string');
+      }
+    }
 
     this._erikPath = path.join(options.bundlePath, '.erik');
 
@@ -65,10 +77,6 @@ class Erik {
     if (!Array.isArray(this._remoteDependencies)) {
       throw new Error('`options.remoteDependencies` is of an invalid type.');
     }
-
-    if (typeof this._bundledSpecPath !== 'string') {
-      throw new Error('`options.bundledSpecPath` is of an invalid type.');
-    }
  
     if (typeof this._port !== 'number') {
       throw new Error('`options.karmaConfig.port` is of an invalid type.');
@@ -81,7 +89,6 @@ class Erik {
 
   _registerTasks() {
     this._registerFetchRemoteDeps();
-    this._registerBundleDeps();
     this._registerRunSpec();
     this._registerErik();
   }
@@ -110,17 +117,6 @@ class Erik {
     });
   }
 
-  _registerBundleDeps() {
-    this._gulp.task('erik-bundle-deps', () => {
-      return this._gulp.src([
-        `${this._erikPath}/remote-deps.js`,
-        ...this._localDependencies
-      ])
-        .pipe(concat('bundled-deps.js'))
-        .pipe(this._gulp.dest(this._erikPath));
-    });
-  }
-
   _registerRunSpec() {
     this._gulp.task('erik-run-spec', (done) => {
       new karmaServer.start({
@@ -136,8 +132,8 @@ class Erik {
         },
 
         files: [
-          `${this._erikPath}/bundled-deps.js`,
-          this._bundledSpecPath,
+          `${this._erikPath}/remote-deps.js`,
+          ...this._localDependencies
         ],
 
         port: this._port,
@@ -163,12 +159,12 @@ class Erik {
     this._gulp.task('erik', (done) => {
       del.sync(this._erikPath);
 
-      const tasks = this._taskDependencies.concat([
+      const tasks = [
+        ...this._taskDependencies,
         'erik-fetch-remote-deps',
-        'erik-bundle-deps',
         'erik-run-spec',
         done
-      ]);
+      ];
 
       // Run everything serially.
       runSequence.use(this._gulp)(...tasks);

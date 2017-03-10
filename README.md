@@ -68,12 +68,14 @@ new Erik({
   ],
 
   /**
-   * Local dependencies to be bundled alongside your remote dependencies. Glob strings. Useful for
-   * including your bower-installed packages, for example.
+   * Local dependencies to be bundled alongside your remote dependencies. Glob strings.
    */
   localDependencies: [
     'public/build-lib.js',
-    'public/lib/ext/**/*'
+    'public/lib/ext/**/*',
+
+    // Include your specs here. Make sure that they are bundled as an IIFE.
+    'spec/client/tests.js',
   ],
 
   /**
@@ -84,11 +86,6 @@ new Erik({
     'https://cdn.jsdelivr.net/g/jquery@2.1.4',
     'https://cdn.jsdelivr.net/g/underscorejs@1.8.3',
   ],
-
-  /**
-   * Path to your bundled test suite. This should be an IIFE.
-   */
-  bundledSpecPath: 'spec/client/tests.js',
 
   /**
    * This configuration is not passed directly into Karma but rather is processed by Erik. Only
@@ -126,6 +123,7 @@ We welcome pull requests! Please lint your code using the JSHint configuration i
 
 ### Release history
 
+* 1.1.0 Re-run specs on any local dependency changes. Wrap `options.bundledSpecPath` into `options.localDependencies`, deprecating `options.bundledSpecPath`.
 * 1.0.3 Don't specify exact dependency versions.
 * 1.0.2 Add event-based watch example.
 * 1.0.1 Move dependencies to be non-dev dependencies.
