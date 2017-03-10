@@ -19,8 +19,7 @@ class Erik {
    * processing is done. Useful for registering your spec-building/processing tasks as dependencies
    * of Erik's testing task. These tasks will be run in serial as passed.
    * @param {String[]} [options.localDependencies] - Local dependencies to be bundled alongisde your
-   * remote dependencies. Glob strings. Useful for including your bower-installed packages, for
-   * example.
+   * remote dependencies. Glob strings.
    * @param {String[]} [options.remoteDependencies] - URLs corresponding to remote dependencies.
    * @param {Object} [options.karmaConfig]
    * @param {Number} [options.karmaConfig.port=9876] - Port on which to run the Karma server.
