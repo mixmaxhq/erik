@@ -44,6 +44,8 @@ Karma's default `progress` reporter isn't quite as nice as the report shown by J
 
 (in your `gulpfile`)
 ```js
+const SHOULD_WATCH = !!argv.watch;
+
 // Creating an `Erik` object registers several tasks with gulp (all prefixed with 'erik-').
 new Erik({
   // The gulp instance with which to register Erik's tasks.
@@ -53,7 +55,7 @@ new Erik({
    * When watch is set, Erik will watch for changes to your bundled spec and re-run the test suite
    * when changes occur.
    */
-  watch: !!argv.watch,
+  watch: SHOULD_WATCH,
 
   /**
    * Names of tasks to be run before any Erik processing is done. Useful for registering your
@@ -101,6 +103,16 @@ new Erik({
 
   // Base path to use for Erik's bundled files. A directory named `.erik` will be created here.
   bundlePath: 'spec/client'
+});
+
+// Optionally configure Gulp to watch for spec changes.
+gulp.on('task_start', function(e) {
+  if (e.task === 'erik') {
+    if (SHOULD_WATCH) {
+      console.log('Watching tests…');
+      gulp.watch(TEST_FILES, ['build-spec-bundle']);
+    }
+  }
 });
 ```
 
