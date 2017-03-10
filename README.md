@@ -126,6 +126,7 @@ We welcome pull requests! Please lint your code using the JSHint configuration i
 
 ### Release history
 
+* 1.0.3 Don't specify exact dependency versions.
 * 1.0.2 Add event-based watch example.
 * 1.0.1 Move dependencies to be non-dev dependencies.
 * 1.0.0 Initial release.
