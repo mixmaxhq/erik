@@ -160,11 +160,12 @@ class Erik {
     this._gulp.task('erik', (done) => {
       del.sync(this._erikPath);
 
-      const tasks = this._taskDependencies.concat([
+      const tasks = [
+        ...this._taskDependencies,
         'erik-fetch-remote-deps',
         'erik-run-spec',
         done
-      ]);
+      ];
 
       // Run everything serially.
       runSequence.use(this._gulp)(...tasks);
