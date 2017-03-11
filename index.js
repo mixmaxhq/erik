@@ -77,15 +77,15 @@ class Erik {
     if (!Array.isArray(this._remoteDependencies)) {
       throw new Error('`options.remoteDependencies` is of an invalid type.');
     }
- 
+
     if (typeof this._port !== 'number') {
       throw new Error('`options.karmaConfig.port` is of an invalid type.');
     }
- 
+
     if (typeof this._bundlePath !== 'string') {
       throw new Error('`options.bundlePath` is of an invalid type.');
     }
-   }
+  }
 
   _registerTasks() {
     this._registerFetchRemoteDeps();
