@@ -124,6 +124,7 @@ We welcome pull requests! Please lint your code using the JSHint configuration i
 
 ### Release history
 
+* 1.1.1 Documentation updates. Require non-empty `options.localDependencies` argument.
 * 1.1.0 Re-run specs on any local dependency changes. Wrap `options.bundledSpecPath` into `options.localDependencies`, deprecating `options.bundledSpecPath`.
 * 1.0.3 Don't specify exact dependency versions.
 * 1.0.2 Add event-based watch example.
