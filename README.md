@@ -52,8 +52,8 @@ new Erik({
   gulp,
 
   /**
-   * When watch is set, Erik will watch for changes to your bundled spec and re-run the test suite
-   * when changes occur.
+   * When watch is set, Erik will watch for changes to your local dependencies and re-run the test
+   * suite when changes occur.
    */
   watch: SHOULD_WATCH,
 
