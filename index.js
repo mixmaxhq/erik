@@ -18,8 +18,8 @@ class Erik {
    * @param {String[]} [options.taskDependencies] - Names of tasks to be run before any Erik
    * processing is done. Useful for registering your spec-building/processing tasks as dependencies
    * of Erik's testing task. These tasks will be run in serial as passed.
-   * @param {String[]} [options.localDependencies] - Local dependencies to be bundled alongisde your
-   * remote dependencies. Glob strings.
+   * @param {String[]} options.localDependencies - Local dependencies to be bundled alongisde your
+   * remote dependencies. Should include your specs. Glob strings.
    * @param {String[]} [options.remoteDependencies] - URLs corresponding to remote dependencies.
    * @param {Object} [options.karmaConfig]
    * @param {Number} [options.karmaConfig.port=9876] - Port on which to run the Karma server.
@@ -72,6 +72,10 @@ class Erik {
 
     if (!Array.isArray(this._localDependencies)) {
       throw new Error('`options.localDependencies` is of an invalid type.');
+    }
+
+    if (this._localDependencies.length === 0) {
+      throw new Error('`options.localDependencies` is empty.');
     }
 
     if (!Array.isArray(this._remoteDependencies)) {
