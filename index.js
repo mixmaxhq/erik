@@ -19,7 +19,8 @@ class Erik {
    * processing is done. Useful for registering your spec-building/processing tasks as dependencies
    * of Erik's testing task. These tasks will be run in serial as passed.
    * @param {String[]} options.localDependencies - Local dependencies to be bundled alongisde your
-   * remote dependencies. Should include your specs. Glob strings.
+   * remote dependencies. Should include your specs. Glob strings. Order is respected here - make
+   * sure to include any dependencies before your specs.
    * @param {String[]} [options.remoteDependencies] - URLs corresponding to remote dependencies.
    * @param {Object} [options.karmaConfig]
    * @param {Number} [options.karmaConfig.port=9876] - Port on which to run the Karma server.

@@ -68,7 +68,8 @@ new Erik({
   ],
 
   /**
-   * Local dependencies to be bundled alongside your remote dependencies. Glob strings.
+   * Local dependencies to be bundled alongside your remote dependencies. Glob strings. Order is
+   * respected here - make sure to include any dependencies before your specs.
    */
   localDependencies: [
     'public/build-lib.js',
