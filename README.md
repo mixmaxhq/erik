@@ -124,6 +124,7 @@ We welcome pull requests! Please lint your code using the JSHint configuration i
 
 ### Release history
 
+* 1.2.0 Work around Karma bug to support `console.log` output among test cases as they run.
 * 1.1.2 Don't fail when the test suite run is empty.
 * 1.1.1 Documentation updates. Require non-empty `options.localDependencies` argument.
 * 1.1.0 Re-run specs on any local dependency changes. Wrap `options.bundledSpecPath` into `options.localDependencies`, deprecating `options.bundledSpecPath`.
