@@ -35,6 +35,7 @@ class Erik {
     this._remoteDependencies = options.remoteDependencies || [];
     this._port = (options.karmaConfig && options.karmaConfig.port) || 9876;
     this._bundlePath = options.bundlePath || '';
+    this._browsers = options.browsers || ['PhantomJS'];
 
     this._assertValidOptions();
 
@@ -126,7 +127,7 @@ class Erik {
     this._gulp.task('erik-run-spec', (done) => {
       new karmaServer.start({
         frameworks: ['jasmine'],
-        browsers: ['PhantomJS'],
+        browsers: this._browsers,
         reporters: ['mocha'],
         failOnEmptyTestSuite: false,
 
