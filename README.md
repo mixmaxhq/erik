@@ -118,6 +118,23 @@ Run your test suite!
 
 `$ gulp erik [--watch]`
 
+##### Testing on other browsers
+
+Should you desire to use a browser other than PhantomJS, you can do so by providing a `browsers` array in the `karmaConfig` object. Note that you'll need to install the appropriate [browser plugins](http://karma-runner.github.io/1.0/config/browsers.html) for Karma.
+
+```js
+new Erik({
+  gulp,
+  
+  ...
+  
+  karmaConfig: {
+    port: 1337,
+    browsers: ['Chrome', 'Firefox']
+  }
+});
+```
+
 ### Contributing
 
 We welcome pull requests! Please lint your code using the JSHint configuration in this project.
