@@ -24,6 +24,8 @@ class Erik {
    * @param {String[]} [options.remoteDependencies] - URLs corresponding to remote dependencies.
    * @param {Object} [options.karmaConfig]
    * @param {Number} [options.karmaConfig.port=9876] - Port on which to run the Karma server.
+   * @param {String[]} [options.karmaConfig.browsers] - What browsers to test on, defaults to
+   * PhantomJS.
    * @param {String} [bundlePath] - Base bath to use for Erik's bundled files. A directory named
    * `erik` will be created here.
    */
@@ -34,8 +36,8 @@ class Erik {
     this._localDependencies = options.localDependencies || [];
     this._remoteDependencies = options.remoteDependencies || [];
     this._port = (options.karmaConfig && options.karmaConfig.port) || 9876;
+    this._browsers = (options.karmaConfig && options.karmaConfig.browsers) || ['PhantomJS'];
     this._bundlePath = options.bundlePath || '';
-    this._browsers = options.browsers || ['PhantomJS'];
 
     this._assertValidOptions();
 
