@@ -134,26 +134,6 @@ class Erik {
         failOnEmptyTestSuite: false,
 
         /**
-         * We must override the default `browserConsoleLogOptions` to allow `log`-type messages (ie
-         * those produced by `console.log`) to display in Erik's output among the tests as they run
-         * because Karma has a bug with its console message filtering.
-         * See https://github.com/karma-runner/karma-mocha/issues/47 and
-         * https://github.com/karma-runner/karma/issues/2582 for more details.
-         */
-        browserConsoleLogOptions: {
-          // Override the default value, `debug`, here.
-          level: 'log',
-
-          /**
-           * Unrelated to Karma's bug, we override the default option here to skip outputting the
-           * browser because Erik only runs tests using PhantomJS so logging the browser name is
-           * unnecessary.
-           */
-          format: '%T: %m',
-          terminal: true
-        },
-
-        /**
          * Pass an empty object for `preprocessors` in order to disable Karma's default processing
          * of coffescript files.
          */

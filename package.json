@@ -31,7 +31,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-remote-src": "^0.4.2",
     "jasmine-core": "^2.5.2",
-    "karma": "^1.5.0",
+    "karma": "^1.7.0",
     "karma-jasmine": "^1.1.0",
     "karma-mocha-reporter": "^2.2.2",
     "karma-phantomjs-launcher": "^1.0.2",
