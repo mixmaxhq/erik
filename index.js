@@ -127,7 +127,7 @@ class Erik {
 
   _registerRunSpec() {
     this._gulp.task('erik-run-spec', (done) => {
-      new karmaServer.start({
+      const server = new karmaServer({
         frameworks: ['jasmine'],
         browsers: this._browsers,
         reporters: ['mocha'],
@@ -138,6 +138,7 @@ class Erik {
          * of coffescript files.
          */
         preprocessors: {
+          '**/*.js': ['sourcemap']
         },
 
         files: [
@@ -149,18 +150,25 @@ class Erik {
 
         autoWatch: this._watch,
         singleRun: !this._watch
-      }, function(exitCode) {
-        /**
-         * We must create our own Error object because the error Karma returns is not a proper Error
-         * object per https://github.com/karma-runner/gulp-karma/issues/18#issuecomment-188413903.
-         */
-        let error;
-        if (exitCode !== 0) {
-          error = new Error(`Karma returned with the exit code: ${exitCode}`);
-        }
-
-        done(error);
       });
+
+      /**
+       * Fix hanging gulp task per recommendation in
+       * https://github.com/karma-runner/gulp-karma/pull/23.
+       */
+      if (!this._watch) {
+        const completeCallback = (browser, { exitCode }) => {
+          if (exitCode !== 0) {
+            return done(new Error(`Karma returned with the exit code: ${exitCode}`));
+          }
+
+          done();
+        };
+
+        server.on('run_complete', completeCallback);
+      }
+
+      server.start();
     });
   }
 
