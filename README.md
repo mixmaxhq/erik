@@ -1,14 +1,14 @@
 # Erik
 
-Start running your client `Jasmine` tests headlessly with `PhantomJS` and `gulp` today.
+Start running your client `Jasmine` tests headlessly with [Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) and `gulp` today.
 
 ### When should I use Erik?
 
 You should use Erik when you have a suite of client Jasmine tests that you currently run by opening a `SpecRunner.html` file but would prefer to run headlessly via a `gulp` task.
 
-Erik utilizes [Karma](https://github.com/karma-runner/karma) to run your Jasmine tests with PhantomJS.
+Erik utilizes [Karma](https://github.com/karma-runner/karma) to run your Jasmine tests with Headless Chrome.
 
-It abstracts away Karma's details and configuration so that you can begin running your tests with PhantomJS quickly and easily.
+It abstracts away Karma's details and configuration so that you can begin running your tests with Headless Chrome quickly and easily.
 
 Simply adapt the below example configuration for your use.
 
@@ -39,8 +39,6 @@ If you're like [us](https://github.com/mixmaxhq), you already have `gulp` tasks 
 Karma's default `progress` reporter isn't quite as nice as the report shown by Jasmine. Erik uses `karma-mocha-reporter` so that you can see a similar, friendly, hierarchical overview of your specs as they complete.
 
 ### Example usage
-
-**Please make sure that all of your dependencies are [compatible with PhantomJS](https://kangax.github.io/compat-table/es6/#phantom).**
 
 (in your `gulpfile`)
 ```js
@@ -120,7 +118,7 @@ Run your test suite!
 
 ##### Testing on other browsers
 
-Should you desire to use a browser other than PhantomJS, you can do so by providing a `browsers` array in the `karmaConfig` object. Note that you'll need to install the appropriate [browser plugins](http://karma-runner.github.io/1.0/config/browsers.html) for Karma.
+Should you desire to use a browser other than Headless Chrome, you can do so by providing a `browsers` array in the `karmaConfig` object. Note that you'll need to install the appropriate [browser plugins](http://karma-runner.github.io/1.0/config/browsers.html) for Karma.
 
 ```js
 new Erik({
@@ -153,4 +151,4 @@ We welcome pull requests! Please lint your code using the JSHint configuration i
 
 ### Etymology
 
-Erik is the name of the Phantom in _Phantom of the Opera_ :D
+Erik is the name of the Phantom in _Phantom of the Opera_ :D. This library used to use PhantomJS instead of Headless Chrome.

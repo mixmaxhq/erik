@@ -1,7 +1,7 @@
 {
   "name": "erik",
   "version": "1.2.1",
-  "description": "Start running your client `Jasmine` tests headlessly with `PhantomJS` and `gulp` today.",
+  "description": "Start running your client `Jasmine` tests headlessly with Headless Chrome and `gulp` today.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,7 +18,9 @@
     "phantomjs",
     "of",
     "the",
-    "opera"
+    "opera",
+    "headless",
+    "chrome"
   ],
   "author": "Spencer Brown <spencer@mixmax.com> (https://mixmax.com)",
   "license": "MIT",
@@ -32,9 +34,9 @@
     "gulp-remote-src": "^0.4.2",
     "jasmine-core": "^2.5.2",
     "karma": "^1.7.0",
+    "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.0",
     "karma-mocha-reporter": "^2.2.2",
-    "karma-phantomjs-launcher": "^1.0.2",
     "run-sequence": "^1.2.2",
     "streamqueue": "^1.1.1"
   }
