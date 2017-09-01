@@ -139,8 +139,9 @@ We welcome pull requests! Please lint your code using the JSHint configuration i
 
 ### Release history
 
-* 2.0.0 Replace PhantomJS with Headless Chrome
-* 1.2.1 Allow browser configuration by browsers array
+* 3.0.0 Fail on empty test suites.
+* 2.0.0 Replace PhantomJS with Headless Chrome.
+* 1.2.1 Allow browser configuration by browsers array.
 * 1.2.0 Work around Karma bug to support `console.log` output among test cases as they run.
 * 1.1.2 Don't fail when the test suite run is empty.
 * 1.1.1 Documentation updates. Require non-empty `options.localDependencies` argument.
