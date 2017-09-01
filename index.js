@@ -131,7 +131,6 @@ class Erik {
         frameworks: ['jasmine'],
         browsers: this._browsers,
         reporters: ['mocha'],
-        failOnEmptyTestSuite: false,
 
         /**
          * Pass an empty object for `preprocessors` in order to disable Karma's default processing
