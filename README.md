@@ -14,7 +14,7 @@ Simply adapt the below example configuration for your use.
 
 ### Installation
 
-`$ yarn add -D erik`
+`$ npm install -D erik`
 
 or
 
