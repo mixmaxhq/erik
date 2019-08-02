@@ -1,6 +1,6 @@
 {
   "name": "erik",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Start running your client `Jasmine` tests headlessly with Headless Chrome and `gulp` today.",
   "main": "index.js",
   "scripts": {

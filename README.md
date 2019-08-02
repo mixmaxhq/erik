@@ -139,6 +139,7 @@ We welcome pull requests! Please lint your code using the JSHint configuration i
 
 ### Release history
 
+* 3.1.0 Add support for the `customLaunchers` Karma field
 * 3.0.0 Fail on empty test suites.
 * 2.0.0 Replace PhantomJS with Headless Chrome.
 * 1.2.1 Allow browser configuration by browsers array.
