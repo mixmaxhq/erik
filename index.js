@@ -37,6 +37,7 @@ class Erik {
     this._remoteDependencies = options.remoteDependencies || [];
     this._port = (options.karmaConfig && options.karmaConfig.port) || 9876;
     this._browsers = (options.karmaConfig && options.karmaConfig.browsers) || ['ChromeHeadless'];
+    this._customLaunchers = (options.karmaConfig && options.karmaConfig.customLaunchers) || undefined;
     this._bundlePath = options.bundlePath || '';
 
     this._assertValidOptions();
@@ -130,6 +131,7 @@ class Erik {
       new karmaServer.start({
         frameworks: ['jasmine'],
         browsers: this._browsers,
+        customLaunchers: this._customLaunchers,
         reporters: ['mocha'],
 
         /**
